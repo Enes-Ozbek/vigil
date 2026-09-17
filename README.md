@@ -9,6 +9,17 @@ next. Also: [PLAN.md](docs/PLAN.md) for the design and milestones, [BALANCE.md](
 for the numbers, [META.md](docs/META.md) for between-run progression, and
 [ASSETS.md](docs/ASSETS.md) for the art.
 
+## Screenshots
+
+The main menu, character select, and arena are captured from the running Godot
+project at its native 1920x1080 resolution.
+
+![The Long Vigil main menu](docs/screenshots/menu.png)
+
+![Character select](docs/screenshots/character-select.png)
+
+![Arena gameplay](docs/screenshots/arena.png)
+
 ## Run it
 
 1. Open the Godot 4 project manager → **Import** → pick this folder's `project.godot`
@@ -206,7 +217,7 @@ and you go into *that* character's upgrades; esc steps back out. Showing every
 node for every character at once is a list, not a place.
 
 Eight nodes per character across the same Common / Grim / Damned tiers, priced
-100 / 300 / 700 — **2,600 for a full tree**. Nodes you cannot afford are dimmed
+150 / 550 / 1300 — **4,700 for a full tree**. Nodes you cannot afford are dimmed
 rather than hidden, so you can see what you are saving for.
 
 Upgrades write the same modifier fields a pact does, so nothing downstream

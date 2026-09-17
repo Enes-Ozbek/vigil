@@ -141,7 +141,7 @@ lifetime / count, life steal, revival, crit chance and damage, dodge (capped
 
 ### Meta progression
 - **THE CHAPEL** — opens on a portrait picker, then that character's tree
-- 8 upgrade nodes per character, priced 150 / 550 / 1300 (4,800 a tree)
+- 8 upgrade nodes per character, priced 150 / 550 / 1300 (4,700 a tree)
 - Purchases persist in `user://profile.cfg` with run history
 - Upgrades write the same modifier fields a pact does
 
