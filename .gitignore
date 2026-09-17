@@ -1,0 +1,17 @@
+# Godot 4 — imported cache, editor state, shader cache
+.godot/
+
+# Build / export artifacts
+build/
+*.exe
+*.pck
+*.zip
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor backup files
+*.tmp
+*.bak
