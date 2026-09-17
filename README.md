@@ -1,4 +1,4 @@
-# Bombom
+# Vigil
 
 A dark fantasy arena roguelite in Godot 4. You hold a ruined chapel against the
 things in the dark. Survive the vigil, and something offers you power — you

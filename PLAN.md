@@ -1,7 +1,6 @@
 # Dark fantasy arena roguelite — development plan
 
-Working title: **Bombom** (placeholder). Candidates: *Tithe*, *Blackwake*, *The
-Long Vigil*, *Carrion Vigil*.
+**Vigil.**
 
 **Current state of the build: [STATUS.md](STATUS.md).**
 
