@@ -1,5 +1,6 @@
 # Godot 4 — imported cache, editor state, shader cache
 .godot/
+*.uid
 
 # Build / export artifacts
 build/

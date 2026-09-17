@@ -4,10 +4,10 @@ A dark fantasy arena roguelite in Godot 4. You hold a ruined chapel against the
 things in the dark. Survive the vigil, and something offers you power — you
 must take one of its offers, and every one of them costs you.
 
-**[STATUS.md](STATUS.md) is the map** — what exists, what does not, what to do
-next. Also: [PLAN.md](PLAN.md) for the design and milestones, [BALANCE.md](BALANCE.md)
-for the numbers, [META.md](META.md) for between-run progression, and
-[ASSETS.md](ASSETS.md) for the art.
+**[STATUS.md](docs/STATUS.md) is the map** — what exists, what does not, what to do
+next. Also: [PLAN.md](docs/PLAN.md) for the design and milestones, [BALANCE.md](docs/BALANCE.md)
+for the numbers, [META.md](docs/META.md) for between-run progression, and
+[ASSETS.md](docs/ASSETS.md) for the art.
 
 ## Run it
 
@@ -42,7 +42,7 @@ theirs alone** — there is no shared pool and nothing is picked up mid-run.
 | The Vessel | 140 / 190 | The Moonstone Blade — cuts sideways, and throws | sprite |
 | The Poacher | 75 / 250 | The Wailing Bow — kills at distance | silhouette |
 
-A character with no sprite still plays perfectly — see [ASSETS.md](ASSETS.md)
+A character with no sprite still plays perfectly — see [ASSETS.md](docs/ASSETS.md)
 for how to add art later.
 
 ## Files
@@ -72,7 +72,7 @@ for how to add art later.
 
 Collision is circle-vs-circle distance math with no physics nodes, and
 everything is rendered through `_draw()` — sprites where art exists, shapes
-where it does not. See [ASSETS.md](ASSETS.md) for the sprite sheets. Real Godot projects lean much harder on scenes (`.tscn`) —
+where it does not. See [ASSETS.md](docs/ASSETS.md) for the sprite sheets. Real Godot projects lean much harder on scenes (`.tscn`) —
 converting the player/enemy/bullet into proper scenes is a good exercise once
 you are comfortable.
 
@@ -192,7 +192,7 @@ this run's progress, gold is what you carry out.
 Coins are told apart from motes by three things at once — amber not green, a
 flat rimmed disc not a haloed orb, and a **spin** rather than a pulse. The
 purse persists in `user://profile.cfg`. What it buys is planned in
-[META.md](META.md).
+[META.md](docs/META.md).
 
 ## The Chapel
 
