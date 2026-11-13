@@ -22,6 +22,11 @@ const NECRO := "res://assets/necromancer.png"
 # deciding anything. The move-speed pacts and the Poacher's Light Feet are now
 # how you buy that back, which is what they were always for.
 const KEEPER := "res://assets/keeper/"
+# The Poacher is drawn by a procedural pixel rig (tools/poacher_rig/), rendered
+# to one sheet with an animation per row: idle 12, walk 8, cast 8, in 108x108
+# cells. tools/build_poacher_sheet.js re-renders it after a change to the rig.
+const POACHER := "res://assets/poacher.png"
+const ARROW := "res://assets/poacher_arrow.png"
 
 const ALL := [
 	{
@@ -180,9 +185,15 @@ const ALL := [
 		"max_hp": 75,
 		"speed": 212.0,
 		"damage_bonus": 0,
-		"frame": Vector2i(64, 64),
-		"pivot": Vector2(32.0, 32.0),
-		"scale": 1.0,
+		# 108x108 cells drawn at 0.6, the Vessel's pixel density. Feet sit on
+		# y=100 in every frame.
+		"frame": Vector2i(108, 108),
+		"pivot": Vector2(54.0, 100.0),
+		"scale": 0.6,
+		"art_holds_weapon": true,
+		# Where the nocked arrow's head sits at full draw (cast frame 0), in
+		# world units. Arrows leave from here.
+		"body_offset": Vector2(26.0, -33.0),
 		"weapon": {
 			"name": "The Wailing Bow",
 			"kind": "shot",
@@ -192,16 +203,28 @@ const ALL := [
 			"range": 420.0,
 			"shots": 1,
 			"bolts": [
+				# The arrow art points right (art_forward 0). art_scale only
+				# lengthens the DRAWN arrow to the ~19 world units it measures on
+				# the sprite; what it hits is unchanged.
 				{"name": "Bone Arrow", "damage_mult": 1.0, "rate_mult": 1.0, "pierce": 1,
-					"sfx": "shoot_arrow"},
+					"sfx": "shoot_arrow", "sprite": ARROW, "align": true, "art_forward": 0.0,
+					"art_scale": 1.9},
 				# Pierces three, so it wants the LONGEST line through the
 				# crowd rather than the closest body -- aiming it at your feet
 				# throws away two of the three hits it paid for.
 				{"name": "Spite", "damage_mult": 1.45, "rate_mult": 0.6, "pierce": 3,
-					"target": "farthest", "sfx": "shoot_arrow"},
+					"target": "farthest", "sfx": "shoot_arrow",
+					"sprite": ARROW, "align": true, "art_forward": 0.0,
+					"art_scale": 1.4},   # bigger hit radius (pierce 3), same arrow
 			],
 		},
-		"anims": {},          # no art yet -- drawn as a silhouette
+		# No hurt or death rows yet: a hit is the usual tint flash, and on
+		# death the last row keeps playing, same as an empty entry would.
+		"anims": {
+			"idle": [POACHER, 0, 12, 8.0],
+			"walk": [POACHER, 1, 8, 12.0],
+			"cast": [POACHER, 2, 8, 20.0],
+		},
 	},
 ]
 

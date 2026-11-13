@@ -318,7 +318,9 @@ Data files (`pacts.gd`, `characters.gd`, `enemy_kinds.gd`) should stay code.
 - **`main.gd` is 1,275 lines** and does the run loop, the HUD and three screens.
   The screens are the natural thing to lift out, and the Control migration
   would do it anyway.
-- **The Poacher has no art.** It plays fine as a silhouette.
+- **The Poacher has no hurt or death rows.** A hit is the usual tint flash, and
+  on death its last row keeps playing. Both would be new poses in
+  `tools/poacher_rig/poacher-rig.js`.
 
 ### Unused assets already imported
 Mad Ghost (a whole creature, wind-up attacker), the Necromancer's cast-2 and

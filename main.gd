@@ -858,6 +858,7 @@ func _shoot(w: Weapon, bolt: Dictionary, targets: Array) -> void:
 			b.texture = SpriteAnim.texture_for(sprite)
 			b.align_to_velocity = bool(bolt.get("align", false))
 			b.art_forward = float(bolt.get("art_forward", -PI * 0.5))
+			b.art_scale = float(bolt.get("art_scale", 1.0))
 			b.frames = int(bolt.get("frames", 1))
 			b.frame_size = bolt.get("frame", Vector2i.ZERO)
 			b.fps = float(bolt.get("fps", 12.0))

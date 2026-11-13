@@ -18,6 +18,8 @@ here needs licence checking — see [STATUS.md](STATUS.md).
 | Flame | `assets/necro_flame.png` | 23x23 | Cinder projectile |
 | Sword | `assets/sword.png` | 12 frames of **64x64** | Sever, the thrown blade |
 | Cursed Chest | `assets/chest/*.png` | one PNG per animation, **64x64** strips | The boss drop |
+| Poacher | `assets/poacher.png` | 12 x 3 grid of **108x108**, rendered from a rig | The Poacher |
+| Bone arrow | `assets/poacher_arrow.png` | 36x9, points right | Bone Arrow and Spite projectiles |
 
 ## Row maps
 
@@ -42,6 +44,10 @@ built but unused.
 **Skeleton Knight** — walk 9, side_swing 7, hurt 2, death 9 wired; `idle` 11
 built but unused. Also in the pack and not imported: DOWN_SWING, FWD_SWING and
 a 21-frame FULL_COMBO, which would suit a second boss phase.
+
+**Poacher** — idle 12, walk 8, cast 8 (frame 0 is full draw; the arrow leaves
+on frame 1). Drawn at scale 0.6, the Vessel's pixel density, feet on y=100. No
+hurt or death rows yet.
 
 **Cursed Chest** — idle 6, opening 7 wired. `cursed_open_empty.png` (7 frames,
 the same animation with no gold inside) is imported and **unused**; it would
@@ -104,6 +110,24 @@ python tools/build_dreadknight_strips.py "<unzipped Dreadknight pack>"
 - **Dreadknight**: 256x256 canvas holding a ~54x57 sprite, over 90% empty. The
   script crops every frame to the **same** 80x96 window, which is what keeps
   the sprite in the same place from one animation to the next.
+
+## The Poacher's rig
+
+The Poacher is not a bought pack: it is drawn by a procedural pixel rig,
+`tools/poacher_rig/poacher-rig.js`, which poses a skeleton and rasterises each
+frame into a 108x108 cell. To change the art, change the rig and re-render:
+
+```bash
+node tools/build_poacher_sheet.js
+```
+
+It runs the rig in headless Chromium (needs Node and `playwright`), rewrites
+`assets/poacher.png` and `assets/poacher_arrow.png`, and prints the pivot and
+muzzle it measured, to carry into `characters.gd` if they moved.
+
+The arrow is all length and no width, so drawn at its hit radius it was a
+splinter. Its bolts set `art_scale`, which draws the art longer without
+touching what it hits.
 
 ## Gotchas worth remembering
 

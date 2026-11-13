@@ -39,6 +39,12 @@ var align_to_velocity := false
 # where it points to where it is going".
 var art_forward := -PI * 0.5
 
+# Drawn size relative to the collision size. 1.0 means the art's longest side
+# IS the hit circle, which is right for round things like the skull and the
+# flame. A thin arrow is all length: drawn at its hit radius it is a 10px
+# splinter, so its bolt asks for more length here without widening what it hits.
+var art_scale := 1.0
+
 # A projectile may be animated rather than a single frame.
 var frames := 1
 var frame_size := Vector2i.ZERO
@@ -94,7 +100,7 @@ func _draw() -> void:
 		# is what hits.
 		var cr := content_rect(texture)
 		var content_r := maxf(float(cr.size.x), float(cr.size.y)) * 0.5
-		var k := size / maxf(content_r, 1.0)
+		var k := size * art_scale / maxf(content_r, 1.0)
 		var centre := Vector2(cr.position) + Vector2(cr.size) * 0.5
 		draw_set_transform(Vector2.ZERO, angle, Vector2(k, k))
 		draw_texture(texture, -centre)
